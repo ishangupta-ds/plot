@@ -11,6 +11,7 @@ import (
 	v1 "github.com/prometheus/client_golang/api/prometheus/v1"
 	"github.com/prometheus/client_golang/api"
 	"github.com/prometheus/common/model"
+	types "github.com/ishangupta-ds/plot/pkg/types"
 )
 
 const (
@@ -19,7 +20,7 @@ const (
 	histStr    = "hist"
 )
 
-func (rt *logRt) RoundTrip(r *http.Request) (*http.Response, error) {
+func (rt *types.logRt) RoundTrip(r *http.Request) (*http.Response, error) {
 	bodyBytes, _ := ioutil.ReadAll(r.Body)
 	bodyString := string(bodyBytes)
 	log.Println(bodyString)

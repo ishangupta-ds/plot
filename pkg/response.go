@@ -3,9 +3,10 @@ package pkg
 import (
 	"log"
 	"strings"
+	types "github.com/ishangupta-ds/plot/pkg/types"
 )
 
-func (v *validator) writeOne(kind string, query string) {
+func (v *types.validator) writeOne(kind string, query string) {
 	m := v.values[query]
 	one := m[0]
 	formattedQuery := one.Metric.String()
