@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"strconv"
 	"time"
-	"github.com/ishangupta-ds/plot/pkg/types"
+	"github.com/ishangupta-ds/plot/types"
 )
 
 func (v *validator) loadQuery(query string) {
