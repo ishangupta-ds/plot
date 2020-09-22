@@ -3,7 +3,6 @@ package pkg
 import (
 	"log"
 	"strings"
-	"github.com/ishangupta-ds/plot/pkg/types"
 )
 
 func (v *validator) writeOne(kind string, query string) {

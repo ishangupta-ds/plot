@@ -12,8 +12,18 @@ import (
 	"github.com/prometheus/client_golang/api"
 	v1 "github.com/prometheus/client_golang/api/prometheus/v1"
 	"github.com/prometheus/common/model"
-	"github.com/ishangupta-ds/plot/pkg/types"
 )
+
+type validator struct {
+	client    v1.API
+	startTime time.Time
+	values    map[string][]*model.SampleStream
+	out       *os.File
+}
+
+type logRt struct {
+	transport http.RoundTripper
+}
 
 const (
 	gaugeStr   = "gauge"

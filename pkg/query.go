@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"strconv"
 	"time"
+
 	"github.com/ishangupta-ds/plot/pkg/types"
 )
 
@@ -62,10 +63,10 @@ func (v *validator) loadQuery(query string) {
 
 				v.values[query] = value.(model.Matrix)*/
 
-		var response apiResponse
+		var response types.ApiResponse
 
 		json.Unmarshal(bodyBytes, &response)
-		var queryResult queryResult
+		var queryResult types.QueryResult
 
 		err = json.Unmarshal(response.Data, &queryResult)
 
