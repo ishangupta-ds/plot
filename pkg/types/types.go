@@ -10,32 +10,12 @@ import (
 	"github.com/prometheus/common/model"
 )
 
-// logRtStructto create token logRt instance
-func logRtStruct() *logRt {
-	return &logRt{}
-}
-
-// queryResultStruct to create token queryResult instance
-func queryResultStruct() *queryResult {
-	return &queryResult{}
-}
-
-// apiResponseStruct to create token apiResponse instance
-func apiResponseStruct() *apiResponse {
-	return &apiResponse{}
-}
-
-// validatorStruct to create token validator instance
-func validatorStruct() *validator {
-	return &validator{}
-}
-
-type logRt struct {
+var logRt struct {
 	transport http.RoundTripper
 }
 
 // queryResult contains result data for a query.
-type queryResult struct {
+var queryResult struct {
 	Type   model.ValueType       `json:"resultType"`
 	Result []*model.SampleStream `json:"result"`
 
@@ -43,7 +23,7 @@ type queryResult struct {
 	v model.Value
 }
 
-type apiResponse struct {
+var apiResponse struct {
 	Status    string          `json:"status"`
 	Data      json.RawMessage `json:"data"`
 	ErrorType v1.ErrorType    `json:"errorType"`
@@ -51,7 +31,7 @@ type apiResponse struct {
 	Warnings  []string        `json:"warnings,omitempty"`
 }
 
-type validator struct {
+var validator struct {
 	client    v1.API
 	startTime time.Time
 	values    map[string][]*model.SampleStream
