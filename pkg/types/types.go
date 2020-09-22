@@ -10,6 +10,26 @@ import (
 	"github.com/prometheus/common/model"
 )
 
+// logRtStructto create token logRt instance
+func logRtStruct() *logRt {
+	return &logRt{}
+}
+
+// queryResultStruct to create token queryResult instance
+func queryResultStruct() *queryResult {
+	return &queryResult{}
+}
+
+// apiResponseStruct to create token apiResponse instance
+func apiResponseStruct() *apiResponse {
+	return &apiResponse{}
+}
+
+// validatorStruct to create token validator instance
+func validatorStruct() *validator {
+	return &validator{}
+}
+
 type logRt struct {
 	transport http.RoundTripper
 }

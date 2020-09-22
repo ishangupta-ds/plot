@@ -9,10 +9,10 @@ import (
 	"net/url"
 	"strconv"
 	"time"
-	types "github.com/ishangupta-ds/plot/pkg/types"
+	"github.com/ishangupta-ds/plot/pkg/types"
 )
 
-func (v *types.validator) loadQuery(query string) {
+func (v *validator) loadQuery(query string) {
 
 	//retrieve response
 	if _, found := v.values[query]; !found {
