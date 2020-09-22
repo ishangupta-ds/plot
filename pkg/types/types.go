@@ -10,12 +10,12 @@ import (
 	"github.com/prometheus/common/model"
 )
 
-var logRt struct {
+type logRt struct {
 	transport http.RoundTripper
 }
 
 // queryResult contains result data for a query.
-var queryResult struct {
+type queryResult struct {
 	Type   model.ValueType       `json:"resultType"`
 	Result []*model.SampleStream `json:"result"`
 
@@ -23,7 +23,7 @@ var queryResult struct {
 	v model.Value
 }
 
-var apiResponse struct {
+type apiResponse struct {
 	Status    string          `json:"status"`
 	Data      json.RawMessage `json:"data"`
 	ErrorType v1.ErrorType    `json:"errorType"`
@@ -31,7 +31,7 @@ var apiResponse struct {
 	Warnings  []string        `json:"warnings,omitempty"`
 }
 
-var validator struct {
+type validator struct {
 	client    v1.API
 	startTime time.Time
 	values    map[string][]*model.SampleStream

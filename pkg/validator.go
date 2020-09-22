@@ -8,8 +8,9 @@ import (
 	"os"
 	"strings"
 	"time"
-	v1 "github.com/prometheus/client_golang/api/prometheus/v1"
+
 	"github.com/prometheus/client_golang/api"
+	v1 "github.com/prometheus/client_golang/api/prometheus/v1"
 	"github.com/prometheus/common/model"
 	"github.com/ishangupta-ds/plot/pkg/types"
 )
