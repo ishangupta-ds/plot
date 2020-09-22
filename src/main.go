@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ishangupta-ds/plot/validator"
+	"github.com/ishangupta-ds/plot/pkg"
 )
 
 func main() {

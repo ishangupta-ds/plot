@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"encoding/json"
@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"strconv"
 	"time"
+	"github.com/ishangupta-ds/plot/pkg/types"
 )
 
 func (v *validator) loadQuery(query string) {
