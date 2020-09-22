@@ -38,7 +38,7 @@ func (rt *logRt) RoundTrip(r *http.Request) (*http.Response, error) {
 	return rt.transport.RoundTrip(r)
 }
 
-func newValidator(address string) (*validator, error) {
+func 	NewValidator(address string) (*validator, error) {
 	f, err := os.Create("./answer.txt")
 	check(err)
 	logRt := &logRt{transport: api.DefaultRoundTripper}
