@@ -1,1 +1,1 @@
-counter, promrwexample_otlp_counter_total, {Key1:Value1,}, [10],
+gauge, chaosengine_experiments_count, {engine_name:catalogue-node-cpu-hog

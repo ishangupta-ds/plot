@@ -17,13 +17,15 @@ func (v *validator) loadQuery(query string) {
 
 	//retrieve response
 	if _, found := v.values[query]; !found {
-		u, err := url.Parse("http://aed80e4edc6a54c6a968bd62d4d1d599-76265430.us-east-2.elb.amazonaws.com:9090/api/prom/api/v1/query_range")
+		u, err := url.Parse("http://aed80e4edc6a54c6a968bd62d4d1d599-76265430.us-east-2.elb.amazonaws.com:9090/api/v1/query_range")
 		if err != nil {
 			log.Println(err)
 			return
 		}
 		q := u.Query()
-		q.Add("query", query)
+		//q.Add("query", `heptio_eventrouter_normal_total{reason="ChaosInject",involved_object_name="catalogue-pod-cpu-hog", involved_object_namespace="litmus", involved_object_kind="ChaosEngine"} - on () (heptio_eventrouter_normal_total{reason="ChaosEngineCompleted",involved_object_name="catalogue-pod-cpu-hog", involved_object_namespace="litmus", involved_object_kind="ChaosEngine"} OR on() vector(0))`)
+		q.Add("query", `chaosengine_experiments_count{engine_name="catalogue-node-cpu-hog"}`)
+		//q.Add("query", query)
 		q.Add("start", strconv.Itoa(int(v.startTime.Unix())))
 		q.Add("end", strconv.Itoa(int(time.Now().Unix())))
 		q.Add("step", "15")
@@ -31,6 +33,10 @@ func (v *validator) loadQuery(query string) {
 		fmt.Println("url: ", u)
 
 		log.Println(query)
+
+		//ur := "http://aed80e4edc6a54c6a968bd62d4d1d599-76265430.us-east-2.elb.amazonaws.com:9090/api/v1/query_range?query=chaosengine_experiments_count%7Bengine_name%3D%22catalogue-node-cpu-hog%22%2C%7D&start=1600777115&end=1600777815&step=15"
+
+		//ur2 := "http://aed80e4edc6a54c6a968bd62d4d1d599-76265430.us-east-2.elb.amazonaws.com:9090/api/v1/query_range?end=1600784487&query=chaosengine_experiments_count%7Bengine_name%3D%22catalogue-node-cpu-hog%22%2C%7D&start=1600783887&step=15"
 
 		resp, err := http.DefaultClient.Get(u.String())
 		if err != nil {

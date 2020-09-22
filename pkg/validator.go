@@ -90,7 +90,7 @@ func (v *validator) ValidateAndFetch(filePath string) {
 			query := strings.Trim(params[1], " ") + strings.Trim(matcher, " ")
 			v.loadQuery(query)
 
-			v.writeOne(params[0], query)
+			//v.writeOne(params[0], query)
 		}
 		break
 	}
